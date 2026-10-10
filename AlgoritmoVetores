@@ -1,0 +1,375 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        vetor1();
+        vetor2();
+        vetor3();
+        vetor4();
+        vetor5();
+        vetor6();
+        vetor7();
+        vetor8();
+        vetor9();
+        vetor10();
+        vetor11();
+        vetor12();
+        vetor13();
+        vetor14();
+        vetor15();
+        vetor16();
+        vetor17();
+        vetor18();
+        vetor19();
+        vetor20();
+    }
+
+    public static void vetor1() {
+        System.out.println("\n==================================================");
+        System.out.println("Exercício 1: Preencher vetor de 10 posições e mostrar os números primos.");
+        Scanner sc = new Scanner(System.in);
+        int[] vet = new int[10];
+        for (int i = 0; i < vet.length; i++) {
+            System.out.print("Pos " + i + ": ");
+            vet[i] = sc.nextInt();
+        }
+        for (int i = 0; i < vet.length; i++) {
+            int num = vet[i];
+            int divs = 0;
+            for (int j = 1; j <= num; j++) {
+                if (num % j == 0) {
+                    divs++;
+                }
+            }
+            if (divs == 2) {
+                System.out.println("Primo: " + num + " pos: " + i);
+            }
+        }
+    }
+
+    public static void vetor2() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 2: Intercalação de dois vetores de 10 elementos.");
+        Scanner sc = new Scanner(System.in);
+        int[] vetA = new int[10];
+        int[] vetB = new int[10];
+        int[] vetRes = new int[20];
+        for (int i = 0; i < vetA.length; i++) {
+            System.out.print("vetA[" + i + "]: ");
+            vetA[i] = sc.nextInt();
+        }
+        for (int i = 0; i < vetB.length; i++) {
+            System.out.print("vetB[" + i + "]: ");
+            vetB[i] = sc.nextInt();
+        }
+        int j = 0;
+        for (int i = 0; i < vetA.length; i++) {
+            vetRes[j] = vetA[i];
+            j++;
+            vetRes[j] = vetB[i];
+            j++;
+        }
+        for (int num : vetRes) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void vetor3() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 3: Média de 10 números aleatórios.");
+        Random rnd = new Random();
+        int[] vet = new int[10];
+        double soma = 0;
+        for (int i = 0; i < vet.length; i++) {
+            vet[i] = rnd.nextInt(100);
+            soma += vet[i];
+        }
+        double med = soma / vet.length;
+        System.out.println("Média: " + med);
+    }
+
+    public static void vetor4() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 4: Verificar se o número 25 existe no vetor aleatório (1 a 30).");
+        Random rnd = new Random();
+        int[] vet = new int[20];
+        boolean ex25 = false;
+        for (int i = 0; i < vet.length; i++) {
+            vet[i] = rnd.nextInt(30) + 1;
+            if (vet[i] == 25) {
+                ex25 = true;
+            }
+        }
+        System.out.println("Existe o 25? " + ex25);
+    }
+
+    public static void vetor5() {
+        System.out.println("=================================================");
+        System.out.println("Exercício 5: Encontrar o índice do número 20 em um vetor aleatório.");
+        Random rnd = new Random();
+        int[] vet = new int[15];
+        int ind = -1;
+        for (int i = 0; i < vet.length; i++) {
+            vet[i] = rnd.nextInt(50) + 1;
+            if (vet[i] == 20) {
+                ind = i;
+            }
+        }
+        System.out.println("Índice do 20: " + ind);
+    }
+
+    public static void vetor6() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 6: Remover um valor específico do vetor aleatório.");
+        Scanner sc = new Scanner(System.in);
+        Random rnd = new Random();
+        int[] vet = new int[30];
+        for (int i = 0; i < vet.length; i++) {
+            vet[i] = rnd.nextInt(100) + 1;
+        }
+        System.out.print("Digite o valor para remover: ");
+        int valRem = sc.nextInt();
+        int contMant = 0;
+        for (int i = 0; i < vet.length; i++) {
+            if (vet[i] != valRem) {
+                contMant++;
+            }
+        }
+        int[] nVet = new int[contMant];
+        int j = 0;
+        for (int i = 0; i < vet.length; i++) {
+            if (vet[i] != valRem) {
+                nVet[j] = vet[i];
+                j++;
+            }
+        }
+        System.out.print("Novo vetor: ");
+        for (int num : nVet) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void vetor7() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 7: Maior e menor valor em vetor de decimais.");
+        Scanner sc = new Scanner(System.in);
+        double[] vet = new double[5];
+        for (int i = 0; i < vet.length; i++) {
+            System.out.print("Val " + i + ": ");
+            vet[i] = sc.nextDouble();
+        }
+        double maior = vet[0];
+        double menor = vet[0];
+        for (int i = 1; i < vet.length; i++) {
+            if (vet[i] > maior) {
+                maior = vet[i];
+            }
+            if (vet[i] < menor) {
+                menor = vet[i];
+            }
+        }
+        System.out.println("Maior: " + maior + " | Menor: " + menor);
+    }
+
+    public static void vetor8() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 8: Copiar vetor A de forma reversa para vetor B.");
+        Random rnd = new Random();
+        int[] vetA = new int[15];
+        int[] vetB = new int[15];
+        for (int i = 0; i < vetA.length; i++) {
+            vetA[i] = rnd.nextInt(100);
+        }
+        for (int i = 0; i < vetA.length; i++) {
+            vetB[i] = vetA[vetA.length - 1 - i];
+        }
+        System.out.print("Vetor B (reverso): ");
+        for (int num : vetB) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void vetor9() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 9: Imprimir números de recibos com loop while.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Qtd de recibos: ");
+        int qtdRec = sc.nextInt();
+        int cont = 1;
+        while (cont <= qtdRec) {
+            System.out.println("Recibo " + cont);
+            cont++;
+        }
+    }
+
+    public static void vetor10() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 10: Imprimir tabuada de um número até 10.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Tabuada do: ");
+        int tab = sc.nextInt();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(tab + " x " + i + " = " + (tab * i));
+        }
+    }
+
+    public static void vetor11() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 11: Média de 10 valores de temperatura.");
+        Scanner sc = new Scanner(System.in);
+        double somaTmp = 0;
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Temp " + (i + 1) + ": ");
+            double tmp = sc.nextDouble();
+            somaTmp += tmp;
+        }
+        double medTmp = somaTmp / 10;
+        System.out.println("Média das temperaturas: " + medTmp);
+    }
+
+    public static void vetor12() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 12: Imprimir todos os números pares de 1 a 50.");
+        for (int i = 1; i <= 50; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void vetor13() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 13: Imprimir números primos menores ou iguais a N.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite N: ");
+        int n = sc.nextInt();
+        for (int i = 2; i <= n; i++) {
+            int divs = 0;
+            for (int j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    divs++;
+                }
+            }
+            if (divs == 2) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void vetor14() {
+        System.out.println("=================================================");
+        System.out.println("Exercício 14: Calcular tempo total de produção baseado nas etapas.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Qtd de etapas: ");
+        int etpProd = sc.nextInt();
+        int tmpTot = 0;
+        for (int i = 0; i < etpProd; i++) {
+            System.out.print("Tempo da etapa " + (i + 1) + ": ");
+            int tmpEtp = sc.nextInt();
+            tmpTot += tmpEtp;
+        }
+        System.out.println("Tempo total: " + tmpTot);
+    }
+
+    public static void vetor15() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 15: N primeiros termos da sequência de Fibonacci.");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite N: ");
+        int n = sc.nextInt();
+        int a = 0;
+        int b = 1;
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            int soma = a + b;
+            a = b;
+            b = soma;
+        }
+        System.out.println();
+    }
+
+    public static void vetor16() {
+        System.out.println("=================================================");
+        System.out.println("Exercício 16: Ler 5 respostas e imprimir na ordem inversa.");
+        Scanner sc = new Scanner(System.in);
+        int[] resps = new int[5];
+        for (int i = 0; i < resps.length; i++) {
+            System.out.print("Resp " + (i + 1) + ": ");
+            resps[i] = sc.nextInt();
+        }
+        System.out.print("Ordem inversa: ");
+        for (int i = resps.length - 1; i >= 0; i--) {
+            System.out.print(resps[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void vetor17() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 17: Calcular média das notas de 10 alunos.");
+        Scanner sc = new Scanner(System.in);
+        double somaNot = 0;
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            double nota = sc.nextDouble();
+            somaNot += nota;
+        }
+        double medNot = somaNot / 10;
+        System.out.println("Média das notas: " + medNot);
+    }
+
+    public static void vetor18() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 18: Identificar a maior temperatura dentre 8 registradas.");
+        Scanner sc = new Scanner(System.in);
+        double maiorTmp = Double.MIN_VALUE;
+        for (int i = 0; i < 8; i++) {
+            System.out.print("Temp " + (i + 1) + ": ");
+            double tmp = sc.nextDouble();
+            if (tmp > maiorTmp) {
+                maiorTmp = tmp;
+            }
+        }
+        System.out.println("Maior temperatura: " + maiorTmp);
+    }
+
+    public static void vetor19() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 19: Verificar presença de produto em vetor pré-definido.");
+        Scanner sc = new Scanner(System.in);
+        int[] cods = {101, 102, 103, 104, 105, 106, 107};
+        System.out.print("Código buscado: ");
+        int codBusc = sc.nextInt();
+        boolean enc = false;
+        for (int i = 0; i < cods.length; i++) {
+            if (cods[i] == codBusc) {
+                enc = true;
+                break;
+            }
+        }
+        System.out.println("Encontrado? " + enc);
+    }
+
+    public static void vetor20() {
+        System.out.println("==================================================");
+        System.out.println("Exercício 20: Ordenar preços em ordem crescente.");
+        Scanner sc = new Scanner(System.in);
+        double[] precs = new double[10];
+        for (int i = 0; i < precs.length; i++) {
+            System.out.print("Prec " + (i + 1) + ": ");
+            precs[i] = sc.nextDouble();
+        }
+        Arrays.sort(precs);
+        System.out.println("Preços ordenados:");
+        for (double prec : precs) {
+            System.out.println(prec);
+        }
+    }
+}
